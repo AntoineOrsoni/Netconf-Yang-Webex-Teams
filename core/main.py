@@ -1,11 +1,8 @@
-from ncclient import manager
-import xmltodict
-from variables import DevNet_XE_sandbox as xe
-from variables import better_than_kitty as bot
-from netconf_functions import *
-from teams_functions import *
-from flask import Flask, escape, request
-import pprint
+from core.variables import DevNet_XE_sandbox as xe
+from core.variables import better_than_kitty as bot
+from core.netconf_functions import *
+from core.teams_functions import *
+from flask import Flask, request
 
 app = Flask(__name__)
 
