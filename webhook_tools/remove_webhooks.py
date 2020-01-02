@@ -1,17 +1,13 @@
 import requests
+import functions
+import argparse
 
-def list_webhooks():
-    url = "https://api.ciscospark.com/v1/webhooks"
 
-    headers = {
-        'Authorization': "Bearer NGVjNjE1ZmItZDljMy00YTFmLTg2YmMtODM2OTVjZWEwYjc1OGRkOTMxYWMtNjVh_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f",
-        'User-Agent': "PostmanRuntime/7.15.2",
-        'Accept': "*/*",
-        'Host': "api.ciscospark.com",
-        'Accept-Encoding': "gzip, deflate",
-        'Connection': "keep-alive"
-        }
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Usage:')
+    parser.add_argument('-t', '--token', type=str, required=True,
+                        help="Token of the Webex Teams bot.")
+    args = parser.parse_args()
 
-    response = requests.request("GET", url, headers=headers)
+    functions.delete_wehbook(functions.list_webhook(args.token), args.token)
 
-    print(response.text)
