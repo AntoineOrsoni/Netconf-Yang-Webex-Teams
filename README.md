@@ -21,3 +21,10 @@ In order to facilite the creation and deletion of webhooks, two scripts can be e
     * mentioned will be sent to `{url}/newroom`
 * `delete_webhooks` will delete all active wehbooks.
 
+## Examples
+
+### Interfaces configuration data
+
+Listing the list of interfaces with their configuration data.
+
+![Interfaces configuration data](https://i.imgur.com/b8w4tCS.png)
