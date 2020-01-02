@@ -10,7 +10,7 @@ Then, use `./webhook_tools/post_webhook.py` to POST the two webhooks.
 * One for when the bot is mentioned,
 * one for when the bot is added in a room.
 
-Don't forget to edit the `./core/variables.py` file with your both token and the ngrok URL.
+Don't forget to edit the `./core/variables.py` file with your both token.
 
 Then, execute the `./core/main.py` file.
 

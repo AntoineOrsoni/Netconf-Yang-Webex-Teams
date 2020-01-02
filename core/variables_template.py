@@ -9,8 +9,6 @@ class DevNet_XE_sandbox:
 class webex_bot:
     # To be filled
     token = ""
-    # To be filled
-    botname = ""
 
 
 class dna_sandbox:

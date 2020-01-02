@@ -1,73 +1,47 @@
-from core.variables import DevNet_XE_sandbox as xe
-from core.variables import webex_bot as bot
-from core.netconf_functions import *
-from core.teams_functions import *
+from variables import DevNet_XE_sandbox as xe
+from variables import webex_bot as bot
+import netconf_functions
+import teams_functions
 from flask import Flask, request
 
 app = Flask(__name__)
 
 @app.route('/newmessage', methods=['POST'])
-def newmessage():
+def new_message():
 
     json_data = request.json
 
     message_id = json_data["data"]["id"]
-    person_id = json_data["data"]["personId"]
-    person_email = json_data["data"]["personEmail"]
     room_id = json_data["data"]["roomId"]
 
-    message = get_message(message_id, bot.token)
+    message = teams_functions.get_message(message_id, bot.token).split()[1]
 
-    # removing the bot name from the message and the space after the bot name
-    message_received = message[len(bot.botname) + 1:]
-
-    # ---
     # I would like to show the operational data of my interfaces
-    # ---
-    if message_received.lower() == "interface":
-        intf_details = get_interfaces(xe)
-        message = ""
+    if message.lower() == "interface":
+        # I get the list of interfaces as a dictionnary
+        # I get the message to be posted as a string
+        # I post the message
+        teams_functions.post_message_markdown(
+            netconf_functions.message_get_interface(netconf_functions.get_interfaces_conf(xe)), room_id, bot.token)
 
-        for i in range(len(intf_details["interfaces"]["interface"])):
-            current_int = intf_details["interfaces"]["interface"][i]
+    elif message.lower() == "help":
+        teams_functions.post_help_bot(room_id, bot.token)
 
-            if i != 0:
-                message += "\n\n"
+    return "message sent"
 
-            for key, value in current_int.items():
-                if key == "name":
-                    message += "### 🖲 {0} 🖲\n".format(value)
-                else:
-                    if value == "if-state-up":
-                        message += "* {0} : `{1}` ✅\n".format(key, value)
-                    elif value == "if-state-down":
-                        message += "* {0} : `{1}` 🚨\n".format(key, value)
-                    else:
-                        message += "* {0} : `{1}`\n".format(key, value)
-
-
-        print(message)
-        post_message_markdown(message, room_id, bot.token)
-
-    elif message_received.lower() == "help":
-        post_help_bot(room_id, bot.token)
-
-    return("200")
 
 @app.route('/newroom', methods=['POST'])
-def newRoom():
+def new_room():
 
     json_data = request.json
 
-    message_id = json_data["data"]["id"]
-    person_id = json_data["data"]["personId"]
-    person_email = json_data["data"]["personEmail"]
     room_id = json_data["data"]["roomId"]
 
-    post_message_markdown("Hey, I have been added to a new room !", room_id, bot.token)
-    post_help_bot(room_id, bot.token)
+    teams_functions.post_message_markdown("Hey, I have been added to a new room !", room_id, bot.token)
+    teams_functions.post_help_bot(room_id, bot.token)
 
-    return ("message sent")
+    return "message sent"
+
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8080)
