@@ -1,3 +1,4 @@
+.gitignore
 core/variables.py
 TODO
 /.venv/
