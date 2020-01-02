@@ -1,3 +1,4 @@
 variables.py
 TODO
-venv
+/.venv/
+/.idea/
