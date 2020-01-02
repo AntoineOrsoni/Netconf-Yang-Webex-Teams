@@ -25,6 +25,6 @@ In order to facilite the creation and deletion of webhooks, two scripts can be e
 
 ### Interfaces configuration data
 
-Listing the list of interfaces with their configuration data.
+Listing the interfaces with their configuration data.
 
 ![Interfaces configuration data](https://i.imgur.com/b8w4tCSl.png)
