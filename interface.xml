@@ -1,0 +1,13 @@
+<filter>
+<interfaces xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-interfaces-oper">
+  <interface>
+    <name/>
+    <interface-type/>
+    <admin-status/>
+    <phys-address/>
+    <vrf/>
+    <ipv4/>
+    <ipv4-subnet-mask/>
+  </interface>
+</interfaces>
+</filter>
