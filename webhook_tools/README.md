@@ -2,8 +2,8 @@
 
 ## post_webhooks.py
 Post Webhooks for when my bot is mentioned, and when my bot is added to a new room.
-* mentioned will be sent to `{url}/newmessage`
-* mentioned will be sent to `{url}/newroom`
+* mentioned will be sent to `{URL}/newmessage`
+* mentioned will be sent to `{URL}/newroom`
 
 Usage: `python post_webhooks.py [-h] -t TOKEN -u URL`
 
