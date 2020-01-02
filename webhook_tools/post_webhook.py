@@ -1,4 +1,3 @@
-# SOURCE : https://github.com/CiscoDevNet/spark-webhooks-sample/blob/master/postwebhook.py
 # Post Webhooks for when my bot is mentioned, and when my bot is added to a new room.
 # mentioned will be sent to {url}/newmessage
 # mentioned will be sent to {url}/newroom

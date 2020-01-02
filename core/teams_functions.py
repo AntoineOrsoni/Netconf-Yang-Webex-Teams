@@ -19,8 +19,7 @@ def create_room(room_name, token):
     resp = requests.post('https://api.ciscospark.com/v1/rooms',
                          verify=False, headers=headers, data=body)
 
-    print(resp)
-
+    return resp
 
 def list_rooms(token):
     """

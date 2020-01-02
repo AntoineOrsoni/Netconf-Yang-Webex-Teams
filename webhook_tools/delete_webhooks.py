@@ -1,3 +1,5 @@
+# Deletes all active webhooks for a token.
+
 import functions
 import argparse
 

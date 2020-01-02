@@ -19,7 +19,7 @@ def newmessage():
     message = get_message(message_id, bot.token)
 
     # removing the bot name from the message and the space after the bot name
-    message_received = message[len(bot.botname_kitty) + 1:]
+    message_received = message[len(bot.botname) + 1:]
 
     # ---
     # I would like to show the operational data of my interfaces
