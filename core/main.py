@@ -24,7 +24,7 @@ def new_message():
         teams_functions.post_message_markdown(
             netconf_functions.message_get_interface(netconf_functions.get_interfaces_conf(xe)), room_id, bot.token)
 
-    elif message.lower() == "help":
+    else:
         teams_functions.post_help_bot(room_id, bot.token)
 
     return "message sent"
