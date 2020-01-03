@@ -2,16 +2,20 @@
 Getting operational data on a remote IOS XE device using NETCONF Yang, and posting the output in Webex Teams.
 
 ## Getting started
+### ngrok
 You now have to sart ngrok on port 8080. 
 
 ```./ngrok http 8080```
 
+### Webex Teams webhooks
 Then, use `./webhook_tools/post_webhook.py` to POST the two webhooks. You will need the ngrok URL to do so, and a Webex Teams token to do so.
 * One for when the bot is mentioned,
 * one for when the bot is added in a room.
 
+### Editing the variables
 Don't forget to edit the `./core/variables.py` file with your bot token.
 
+### Launching the bot
 Then, execute the `./core/main.py` file.
 
 ## Tools
