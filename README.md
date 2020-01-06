@@ -2,6 +2,11 @@
 Getting operational data on a remote IOS XE device using NETCONF Yang, and posting the output in Webex Teams.
 
 ## Getting started
+### Setup
+The `setup.sh` file can do the setup for you. It will create a virtual environment, in a `venv` folder, and activate it.
+It will them install the python packages required for this project, listed in `requirements.txt`.
+Then, it will rename the `variable``_template.py` file to `variables.py`. This file will store variables like your Webex Teams' bot token.
+
 ### ngrok
 You now have to sart ngrok on port 8080. 
 
