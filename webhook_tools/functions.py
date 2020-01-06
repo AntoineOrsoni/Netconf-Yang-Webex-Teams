@@ -6,6 +6,15 @@ import requests
 import datetime
 import json
 
+# returns the person_id for a specific token. Used to filter the /newroom webhook to only the bot.
+def get_person_id(token):
+    headers = {'Authorization': 'Bearer ' + token,
+               'Content-Type': 'application/json'}
+
+    response = json.loads(requests.request("GET", "https://api.ciscospark.com/v1/people/me", headers=headers).text)
+
+    return response["id"]
+
 
 # create a webhook for the bot mentions
 def create_webhook_new_message(webhook_url, token):
@@ -40,6 +49,7 @@ def create_webhook_new_room(webhook_url, token):
     payload_new_message = {
         "resource": "memberships",
         "event": "created",
+        "filter": "personId={bot_id}".format(bot_id=get_person_id(token)),
         "targetUrl": "{url}/newroom".format(url=webhook_url),
         "name": "Webhook NETCONF-Yang - New Room -- {0}".format(datetime.date.today())
     }
