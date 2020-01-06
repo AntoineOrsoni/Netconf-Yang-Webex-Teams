@@ -1,8 +1,10 @@
 import requests
 from requests.auth import HTTPBasicAuth
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
+import bot_capabilities
 
 import json
+
 
 def create_room(room_name, token):
     """
@@ -20,6 +22,7 @@ def create_room(room_name, token):
                          verify=False, headers=headers, data=body)
 
     return resp
+
 
 def list_rooms(token):
     """
@@ -171,19 +174,17 @@ def get_message(message_id, token):
     # parse the response in json
     response_json = api_response.json()
 
-    print("response_json =" + str(response_json))
+    # returns the text value from the response
+    return response_json["text"]
 
-    # get the text value from the response
-    text = response_json["text"]
-
-    print("text =" + text)
-
-    # return the text value
-    return text
 
 def post_help_bot(room_id, token):
-    post_message_markdown("You asked for help, here is what I can do : \n"
-                          "* `interface` get the operational states of the interfaces of my **IOS XE**\n"
-                          "* `help` to print the help \n\n"
-                          "That's all for now", room_id, token)
+    message = "You asked for help, here is what I can do: \n\n"
 
+    for item in range(len(bot_capabilities.capabilities)):
+        message += "* `{keyword}`: {details}\n\n".format(
+            keyword=bot_capabilities.capabilities[item]["keyword"],
+            details=bot_capabilities.capabilities[item]["details"])
+        print(message)
+
+    post_message_markdown(message, room_id, token)
