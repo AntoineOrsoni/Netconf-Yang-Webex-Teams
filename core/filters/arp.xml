@@ -1,0 +1,11 @@
+<filter>
+  <arp-data xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-arp-oper">
+    <arp-vrf>
+      <arp-oper>
+        <address/>
+        <enctype/>
+        <interface/>
+      </arp-oper>
+    </arp-vrf>
+  </arp-data>
+</filter>
