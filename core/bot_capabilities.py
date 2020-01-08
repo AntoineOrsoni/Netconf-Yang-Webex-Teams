@@ -6,5 +6,9 @@ capabilities = [
     {
         "keyword": "interface",
         "details": "Returns the interfaces operational data of the DevNet XE Sandbox."
+    },
+    {
+        "keyword": "arp",
+        "details": "Returns the ARP operational data of the DevNet XE Sandbox."
     }
 ]
