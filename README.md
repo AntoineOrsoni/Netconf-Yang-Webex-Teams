@@ -37,3 +37,9 @@ In order to facilite the creation and deletion of webhooks, two scripts can be e
 Listing the interfaces with their configuration data.
 
 ![Interfaces configuration data](https://i.imgur.com/b8w4tCSl.png)
+
+### ARP data
+
+Listing the ARP table of the device.
+
+![ARP data](https://i.imgur.com/57RrMlxl.png)
