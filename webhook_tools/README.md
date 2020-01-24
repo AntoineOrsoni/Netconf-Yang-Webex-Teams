@@ -7,6 +7,8 @@ Post Webhooks for when my bot is mentioned, and when my bot is added to a new ro
 
 Usage: `python post_webhooks.py [-h] -t TOKEN -u URL`
 
+To avoid errors, if the URL giving as a parameter ends with a "/", removes it.
+
 ## delete_webhooks.py
 Deletes all active webhooks for a specific Webex Teams token.
 
