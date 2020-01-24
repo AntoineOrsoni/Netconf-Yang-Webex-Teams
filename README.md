@@ -34,13 +34,6 @@ Then, execute the `./core/main.py` file.
 
 Capabilities of the bot are listed in the `./core/bot_capabilities.py` file.
 
-## Tools
-In order to facilite the creation and deletion of webhooks, two scripts can be executed. Both files are in `./webhooks_tools/`.
-* `post_webhooks` will post two webhooks. One for when the bot is mentioned, one for when the bot is added to a room.
-    * mentioned will be sent to `{URL}/newmessage`
-    * mentioned will be sent to `{URL}/newroom`
-* `delete_webhooks` will delete all active wehbooks.
-
 ## Webhooks tools
 
 ### Webex Teams webhooks
