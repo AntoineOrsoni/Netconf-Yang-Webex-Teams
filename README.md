@@ -1,15 +1,11 @@
 # Netconf-Yang-Webex-Teams
 Getting operational data on a remote IOS XE device using NETCONF Yang, and posting the output in Webex Teams.
 
-## Webex Teams bots
+### Webex Teams webhooks
 
-Bots are similar to regular Webex Teams users. They can participate in 1-to-1 and group spaces and users can message them directly or add them to a group space. A special badge is added to a bot's avatar in the Webex Teams clients so users know they're interacting with a bot instead of a human.
+A webhook is an HTTP callback, or an HTTP POST, to a specified URL that notifies your app when a particular activity or “event” has occurred in one of your resources on the Webex Teams platform. The benefit of using webhooks is that they allow your application to receive real-time data from Webex Teams, so you can keep up with the state of your resources (i.e. rooms, messages, memberships, etc.).
 
-A bot can only access messages sent to it directly. In group spaces, bots must be @mentioned to access the message. In 1-to-1 spaces, a bot has access to all messages from the user.
-
-Bots do not, however, perform actions within Webex Teams on behalf of a Webex Teams user.
-
-[More information about bots](https://developer.webex.com/docs/bots)
+[More information about Webex Teams wehbooks](https://developer.webex.com/docs/api/guides/webhooks)
 
 ## Getting started
 
